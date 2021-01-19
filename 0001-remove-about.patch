@@ -1,0 +1,36 @@
+From b480fa946aa57d43e5dc7ff9776c53f025c2054f Mon Sep 17 00:00:00 2001
+From: lvhan <lvhan@kylinos.cn>
+Date: Tue, 19 Jan 2021 16:39:53 +0800
+Subject: [PATCH] remove about
+
+---
+ src/mainwindow.cpp | 6 ++++--
+ 1 file changed, 4 insertions(+), 2 deletions(-)
+
+diff --git a/src/mainwindow.cpp b/src/mainwindow.cpp
+index f9e9027..d1ebd40 100644
+--- a/src/mainwindow.cpp
++++ b/src/mainwindow.cpp
+@@ -70,7 +70,8 @@ MainWindow::MainWindow(QWidget *parent) :
+     addCityAction = new AddCityAction(menu);
+     addCityAction->setText(tr("Add City"));
+     aboutAction = new QAction(tr("About"),menu);
+-    actions<<addCityAction<<aboutAction;
++//    actions<<addCityAction<<aboutAction;
++    actions<<addCityAction;
+     menu->addActions(actions);
+     setBtn->setMenu(menu);
+     connect(addCityAction, &AddCityAction::requestSetCityName, this, [=] (QString cityName) {
+@@ -214,7 +215,8 @@ void MainWindow::initControlQss()
+ 
+     setBtn->setFixedSize(30,30);
+     //menu跟主题走
+-    menu->setFixedSize(120,66);
++//    menu->setFixedSize(120,66);
++    menu->setFixedSize(120,40);
+     menu->setStyleSheet("QMenu{border-radius:3px;background-color:white;color:black;}"
+                         "QMenu::item:selected {color:white;background-color: #2dabf9;}"
+                         "QMenu::item {font-size:14px;border-radius:4px;background-color: transparent;}");
+-- 
+2.29.2.windows.2
+
