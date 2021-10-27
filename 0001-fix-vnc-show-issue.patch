@@ -1,0 +1,26 @@
+From 90a2ef1e2e7593bd192c6ddf51e16a8914e8517b Mon Sep 17 00:00:00 2001
+From: dou33 <johnwo3396@hotmail.com>
+Date: Tue, 26 Oct 2021 17:32:01 +0800
+Subject: [PATCH] fix vnc show issue
+
+---
+ src/qtsingleapplication/qtsingleapplication.cpp | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+diff --git a/src/qtsingleapplication/qtsingleapplication.cpp b/src/qtsingleapplication/qtsingleapplication.cpp
+index d0fb15d..dc27559 100755
+--- a/src/qtsingleapplication/qtsingleapplication.cpp
++++ b/src/qtsingleapplication/qtsingleapplication.cpp
+@@ -324,7 +324,8 @@ void QtSingleApplication::activateWindow()
+ {
+     if (actWin) {
+         actWin->setWindowState(actWin->windowState() & ~Qt::WindowMinimized);
+-        actWin->raise();
++        actWin->show();//fix vnc display issue
++	actWin->raise();
+         actWin->activateWindow();
+     }
+ }
+-- 
+2.24.3 (Apple Git-128)
+
