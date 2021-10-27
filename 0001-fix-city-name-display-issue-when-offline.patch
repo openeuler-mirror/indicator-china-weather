@@ -1,0 +1,24 @@
+From a853253406dc1c12cc20ee4383d3208dd5611ce2 Mon Sep 17 00:00:00 2001
+From: dou33 <johnwo3396@hotmail.com>
+Date: Tue, 26 Oct 2021 17:33:51 +0800
+Subject: [PATCH] fix city name display issue when offline
+
+---
+ src/mainwindow.cpp | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/mainwindow.cpp b/src/mainwindow.cpp
+index 3064a87..02a5875 100755
+--- a/src/mainwindow.cpp
++++ b/src/mainwindow.cpp
+@@ -557,6 +557,7 @@ void MainWindow::setAbnormalMainWindow()
+     ui->lbCurrTmpUnit->setText("");
+     ui->lbCurrWea->setText("");
+     ui->lbCurrHum->setText("");
++    cityLabel->setText("");
+ 
+     ForecastWeather abnormalForecastweather;
+     for (int i=0; i<7; i++) {
+-- 
+2.24.3 (Apple Git-128)
+
