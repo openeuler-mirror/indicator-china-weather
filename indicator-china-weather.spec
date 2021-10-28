@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 Name:           indicator-china-weather
 Version:        3.1.0
-Release:        3
+Release:        4
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
@@ -66,6 +66,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Wed Oct 27 2021 douyan <douyan@kylinos.cn> - 3.1.0-4
+- fix city name display issue when offline
+
 * Tue Oct 26 2021 douyan <douyan@kylinos.cn> - 3.1.0-3
 - fix vnc show issue
 
