@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 Name:           indicator-china-weather
 Version:        3.1.0
-Release:        6
+Release:        7
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
@@ -21,6 +21,10 @@ BuildRequires:  GeoIP-devel
 
 # Requires: NetworkManager
 
+#patch0:  0001-remove-about.patch
+#patch1:  0001-fix-vnc-show-issue.patch
+patch0: fix-gsetting-issue.patch
+
 %description
  Indicator that displays China weather information
  Kylin Weather displays detail weather information for one place,
@@ -29,6 +33,7 @@ BuildRequires:  GeoIP-devel
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  indicator-china-weather.pro
@@ -60,6 +65,10 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Wed Dec 8 2021 douyan <douyan@kylinos.cn> - 3.1.0-7
+- update to upstream version 3.1.0-36
+- fix open failed caused by gsetting
+
 * Tue Dec 7 2021 douyan <douyan@kylinos.cn> - 3.1.0-6
 - update to upstream version 3.1.0-34
 
