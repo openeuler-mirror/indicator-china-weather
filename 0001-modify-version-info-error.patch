@@ -1,0 +1,45 @@
+From e6034240c90de760062bce5eddd1500748ca1542 Mon Sep 17 00:00:00 2001
+From: pei-jiankang <peijiankang@kylinos.cn>
+Date: Mon, 14 Mar 2022 10:46:34 +0800
+Subject: [PATCH] modify version-info error
+
+---
+ src/menumodule.cpp | 22 +++++++++++++++++++++-
+ 1 file changed, 21 insertions(+), 1 deletion(-)
+
+diff --git a/src/menumodule.cpp b/src/menumodule.cpp
+index 040a8e5..6cd0b48 100644
+--- a/src/menumodule.cpp
++++ b/src/menumodule.cpp
+@@ -247,7 +247,27 @@ QHBoxLayout* menuModule::initTitleBar(){
+ 
+ QVBoxLayout* menuModule::initBody(){
+     appVersion = "3.1.1";
+-
++    FILE *pp = NULL;
++    char *line = NULL;
++    char *q = NULL;
++    size_t len = 0;
++    ssize_t read;
++
++    pp = popen("rpm -qa indicator-china-weather", "r");
++    if(pp) { while((read = getline(&line, &len, pp)) != -1){
++        q = strrchr(line, '\n');
++        *q = '\0';
++        QString content = line;
++        QStringList list = content.split("-");
++        if (list.size() >= 3)
++            appVersion = list.at(3);
++        }
++    }
++    if(line){
++        free(line);
++	line = NULL;
++    }
++    pclose(pp);
+ 
+     QPushButton *bodyIcon = new QPushButton();
+     bodyIcon->setFixedSize(96,96);
+-- 
+2.33.0
+
