@@ -1,4 +1,4 @@
 version_control: github
 src_repo: UbuntuKylin/indicator-china-weather
-tag_prefix: "indicator-china-weather-"
-seperator: "."
+tag_prefix: "^v"
+separator: "."
