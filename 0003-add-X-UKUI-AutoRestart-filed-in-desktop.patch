@@ -1,0 +1,21 @@
+From c551c81279de6ea2d9494f304d385d12377ab006 Mon Sep 17 00:00:00 2001
+From: peijiankang <peijiankang@kylinos.cn>
+Date: Fri, 24 Jun 2022 15:00:07 +0800
+Subject: [PATCH] add X-UKUI-AutoRestart filed in desktop
+
+---
+ indicator-china-weather.desktop | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/indicator-china-weather.desktop b/indicator-china-weather.desktop
+index ab54ec1..1dbd4d3 100644
+--- a/indicator-china-weather.desktop
++++ b/indicator-china-weather.desktop
+@@ -14,3 +14,4 @@ Terminal=false
+ Type=Application
+ X-GNOME-Autostart-Delay=10
+ Categories=GNOME;Utility;
++X-UKUI-AutoRestart=true;
+-- 
+2.33.0
+
