@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 Name:           indicator-china-weather
 Version:        3.1.0
-Release:        10
+Release:        11
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
@@ -25,6 +25,7 @@ patch0: fix-gsetting-issue.patch
 patch1: fix-auto-get-location.patch
 patch2: 0002-Modified-kylin-weather-display-is-incomplete.patch
 patch3: 0003-add-X-UKUI-AutoRestart-filed-in-desktop.patch
+patch4: 0004-update-translation-file.patch
 
 %description
  Indicator that displays China weather information
@@ -37,6 +38,8 @@ patch3: 0003-add-X-UKUI-AutoRestart-filed-in-desktop.patch
 %patch0 -p1
 %patch1 -p1
 %patch2 -p1
+%patch3 -p1
+%patch4 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  indicator-china-weather.pro
@@ -68,6 +71,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Mon Jun 27 2022 peijiankang <peijiankang@kylinos.cn> - 3.1.0-11
+- update translation file
+
 * Fri Jun 24 2022 peijiankang <peijiankang@kylinos.cn> - 3.1.0-10
 - add-X-UKUI-AutoRestart filed in desktop
 
