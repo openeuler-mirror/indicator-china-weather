@@ -36,7 +36,7 @@ index 21773d4..335d3c9 100644
 -    ui->lbCityCollect->setText("收藏城市");
 -    ui->lbCityCurrent->setText("当前城市");
 +    ui->lbCityCollect->setText(tr("Collections"));  //收藏城市
-+    ui->lbCityCurrent->setText((tr("Local"));       //当前城市
++    ui->lbCityCurrent->setText(tr("Local"));       //当前城市
  
      ui->lbCityCount->setText("0/8");
      m_citynumber = 0;
