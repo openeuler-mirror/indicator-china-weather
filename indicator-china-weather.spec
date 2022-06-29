@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 Name:           indicator-china-weather
 Version:        3.1.0
-Release:        12
+Release:        13
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
@@ -27,6 +27,7 @@ patch2: 0002-Modified-kylin-weather-display-is-incomplete.patch
 patch3: 0003-add-X-UKUI-AutoRestart-filed-in-desktop.patch
 patch4: 0004-update-translation-file.patch
 patch5: 0005-Increase-the-drag-bar-of-forecast-part.patch
+patch6: 0006-Hide-tray-icon-in-case-of-network-exception.patch
 
 %description
  Indicator that displays China weather information
@@ -42,6 +43,7 @@ patch5: 0005-Increase-the-drag-bar-of-forecast-part.patch
 %patch3 -p1
 %patch4 -p1
 %patch5 -p1
+%patch6 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  indicator-china-weather.pro
@@ -73,6 +75,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Wed Jun 29 2022 peijiankang <peijiankang@kylinos.cn> - 3.1.0-13
+- 网络异常情况下隐藏托盘icon
+
 * Tue Jun 28 2022 peijiankang <peijiankang@kylinos.cn> - 3.1.0-12
 - Increase the drag bar of forecast part
 

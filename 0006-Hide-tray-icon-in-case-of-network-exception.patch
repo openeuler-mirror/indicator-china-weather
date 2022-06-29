@@ -1,0 +1,47 @@
+From 20e81b00cac3c11611ad1a0af74c55af370912c0 Mon Sep 17 00:00:00 2001
+From: peijiankang <peijiankang@kylinos.cn>
+Date: Wed, 29 Jun 2022 10:25:24 +0800
+Subject: [PATCH] Hide tray icon in case of network exception
+
+---
+ debian/changelog   | 1 +
+ src/mainwindow.cpp | 4 +++-
+ 2 files changed, 4 insertions(+), 1 deletion(-)
+
+diff --git a/debian/changelog b/debian/changelog
+index a18e2f5..d698926 100644
+--- a/debian/changelog
++++ b/debian/changelog
+@@ -2,6 +2,7 @@ indicator-china-weather (3.1.0-37) v101; urgency=medium
+ 
+   * 解决了BUG#30685 程序没有IP定位功能
+   * 解决了BUG#27090 收藏界面国际化问题
++  * 解决了BUG#34026 断网情况下隐藏托盘icon
+ 
+  -- shixiaoshuo <shixiaoshuo@kylinos.cn>  Fri,8  Jan 2021 10:33:00 +0800
+ 
+diff --git a/src/mainwindow.cpp b/src/mainwindow.cpp
+index 4b6ab78..9c43bde 100644
+--- a/src/mainwindow.cpp
++++ b/src/mainwindow.cpp
+@@ -368,6 +368,7 @@ void MainWindow::initConnections()
+             QStringList listCityId = getCityList().split(",");
+             qDebug()<<"listCityId:"<<listCityId;
+             m_weatherManager->startGetTheWeatherData(listCityId.at(0));
++	    m_trayIcon->show();
+         } else {
+             if (status == "Fail") {
+                 onHandelAbnormalSituation("Without wired Carrier");
+@@ -554,7 +555,8 @@ void MainWindow::onHandelAbnormalSituation(QString abnormalText){
+ //处理异常时的主界面显示
+ void MainWindow::setAbnormalMainWindow()
+ {
+-    m_trayIcon->setIcon(QIcon::fromTheme(QString("999"), QIcon(QString(":/res/weather_icons/white/999.png"))) );
++    //m_trayIcon->setIcon(QIcon::fromTheme(QString("999"), QIcon(QString(":/res/weather_icons/white/999.png"))) );
++    m_trayIcon->hide();
+ //    m_openAction->setIcon(QIcon::fromTheme(QString("999"), QIcon(QString(":/res/weather_icons/white/999.png"))) );
+     ui->lbCurrTmp->setText("");
+     ui->lbCurrTmpUnit->setText("");
+-- 
+2.33.0
+
