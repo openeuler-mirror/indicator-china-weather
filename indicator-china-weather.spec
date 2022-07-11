@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 Name:           indicator-china-weather
 Version:        3.1.0
-Release:        14
+Release:        15
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
@@ -29,6 +29,7 @@ patch4: 0004-update-translation-file.patch
 patch5: 0005-Increase-the-drag-bar-of-forecast-part.patch
 patch6: 0006-Hide-tray-icon-in-case-of-network-exception.patch
 patch7: 0007-Repair-menu-button-hover-style-exception.patch
+patch8: 0008-Solve-the-problem-of-button-backlighting.patch
 
 %description
  Indicator that displays China weather information
@@ -46,6 +47,7 @@ patch7: 0007-Repair-menu-button-hover-style-exception.patch
 %patch5 -p1
 %patch6 -p1
 %patch7 -p1
+%patch8 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  indicator-china-weather.pro
@@ -77,6 +79,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Mon Jul 11 2022 peijiankang <peijiankang@kylinos.cn> - 3.1.0-15
+- 解决按钮反白的问题
+
 * Wed Jun 29 2022 peijiankang <peijiankang@kylinos.cn> - 3.1.0-14
 - 修复菜单按钮hover样式异常
 
