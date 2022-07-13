@@ -1,7 +1,7 @@
 %define debug_package %{nil}
 Name:           indicator-china-weather
 Version:        3.1.0
-Release:        16
+Release:        17
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
@@ -31,6 +31,7 @@ patch6: 0006-Hide-tray-icon-in-case-of-network-exception.patch
 patch7: 0007-Repair-menu-button-hover-style-exception.patch
 patch8: 0008-Solve-the-problem-of-button-backlighting.patch
 patch9: 0009-Update-ts-file-and-add-today-translation.patch
+patch10:0010-update-translation-file.patch
 
 %description
  Indicator that displays China weather information
@@ -50,6 +51,7 @@ patch9: 0009-Update-ts-file-and-add-today-translation.patch
 %patch7 -p1
 %patch8 -p1
 %patch9 -p1
+%patch10 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  indicator-china-weather.pro
@@ -81,6 +83,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Wed Jul 13 2022 tanyulong <tanyulong@kylinos.cn> - 3.1.0-17
+- update translation file
+
 * Wed Jul 13 2022 tanyulong <tanyulong@kylinos.cn> - 3.1.0-16
 - Update ts file and add today translation
 
