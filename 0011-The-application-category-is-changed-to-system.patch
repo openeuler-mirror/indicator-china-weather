@@ -1,0 +1,23 @@
+From 949e674399ba4ad597b933a01f01bebd0a39db1d Mon Sep 17 00:00:00 2001
+From: tanyulong2021 <tanyulong@kylinos.cn>
+Date: Thu, 14 Jul 2022 09:45:11 +0800
+Subject: [PATCH] The application category is changed to system
+
+---
+ indicator-china-weather.desktop | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/indicator-china-weather.desktop b/indicator-china-weather.desktop
+index 1dbd4d3..36a6137 100644
+--- a/indicator-china-weather.desktop
++++ b/indicator-china-weather.desktop
+@@ -13,5 +13,5 @@ Icon=indicator-china-weather
+ Terminal=false
+ Type=Application
+ X-GNOME-Autostart-Delay=10
+-Categories=GNOME;Utility;
++Categories=System Settings Security;
+ X-UKUI-AutoRestart=true;
+-- 
+2.33.0
+
