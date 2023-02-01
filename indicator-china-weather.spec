@@ -1,7 +1,6 @@
-%define debug_package %{nil}
 Name:           indicator-china-weather
 Version:        3.1.3
-Release:        1
+Release:        2
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
@@ -61,6 +60,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Mon Feb 06 2023 peijiankang <peijiankang@kylinos.cn> - 3.1.3-2
+- add build debuginfo and debugsource
+
 * Wed Aug 03 2022 peijiankang <peijiankang@kylinos.cn> - 3.1.3-1
 - update to uptream version 3.1.3
 
