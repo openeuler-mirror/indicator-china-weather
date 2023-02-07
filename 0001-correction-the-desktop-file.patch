@@ -1,0 +1,37 @@
+From c51c0b63ae60a63b4948ea832edaba965da3d1bd Mon Sep 17 00:00:00 2001
+From: tanyulong2021 <tanyulong@kylinos.cn>
+Date: Tue, 7 Feb 2023 09:18:30 +0800
+Subject: [PATCH] correction the desktop file
+
+---
+ debian/control                  | 2 +-
+ indicator-china-weather.desktop | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/debian/control b/debian/control
+index 8d0e1c7..34ca1d9 100644
+--- a/debian/control
++++ b/debian/control
+@@ -2,7 +2,7 @@ Source: indicator-china-weather
+ Section: utils
+ Priority: optional
+ Maintainer: lixiang <lixiang@kylinos.cn>
+-Build-Depends: debhelper-compat (=12),
++Build-Depends: debhelper-compat (>=9),
+                qtbase5-dev,
+                qt5-qmake,
+                qtchooser,
+diff --git a/indicator-china-weather.desktop b/indicator-china-weather.desktop
+index 8a77f48..b374c40 100644
+--- a/indicator-china-weather.desktop
++++ b/indicator-china-weather.desktop
+@@ -13,5 +13,5 @@ Icon=indicator-china-weather
+ Terminal=false
+ Type=Application
+ X-GNOME-Autostart-Delay=10
+-Categories=System;Utility;
++Categories=System Settings Security;
+ X-UKUI-AutoRestart=true;
+-- 
+2.33.0
+
