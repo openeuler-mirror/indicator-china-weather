@@ -1,11 +1,12 @@
 Name:           indicator-china-weather
 Version:        3.1.3
-Release:        3
+Release:        4
 Summary:        The weather data are from the heweather API s6 version.
 License:        GPL-3.0+
 URL:            https://github.com/UbuntuKylin/indicator-china-weather
 Source0:        %{name}-%{version}.tar.gz
 Patch0:		0001-correction-the-desktop-file.patch
+Patch1:		fix-clang.patch
 
 BuildRequires:  qtchooser
 BuildRequires:  qt5-qtx11extras-devel
@@ -31,6 +32,7 @@ BuildRequires:  GeoIP-devel
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{qmake_qt5} %{_qt5_qmake_flags} CONFIG+=enable-by-default  indicator-china-weather.pro
@@ -62,6 +64,9 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/man/man1/indicator-china-weather.1.gz
 
 %changelog
+* Tue Jun 20 2023 yoo <sunyuechi@iscas.ac.cn> - 3.1.3-4
+- fix clang build error
+
 * Tue Feb 07 2023 tanyulong <tanyulong@kylinos.cn> - 3.1.3-3
 - correction the desktop file
 
